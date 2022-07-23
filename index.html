@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           background-color: #FFF9BD;
+           color: #FCAD2C;
+        }
+      form{
+        width: 300px;
+        margin: auto;
+        text-align: center;
+      }
+      h1{
+        text-align: center;
+      }
+      button {
+            border-radius: 50px;
+            font-size: large;
+            font-weight: bold;
+            padding: 10px 30px;
+            background-color: #8DC73F;
+            border: 1px solid #8DC73F;
+            text-transform: uppercase;
+            color: white;
+        }
+        #button{
+            border-radius: 50px;
+            font-size: large;
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: #FCAD2C;
+            border: 1px solid #FCAD2C;
+            text-transform: uppercase;
+            color: white;  
+            height: 40px;
+        }
+
+        #button:hover {
+            cursor: pointer;
+            background-color: #eba029;
+        }
+
+
+        button:hover {
+            cursor: pointer;
+            background-color: #77a738;
+        }
+
+        input {
+            border: 0px;
+            background-color: #F8F8FA;
+            height: 25px;
+        }
+
+    </style>
+</head>
+<body>
+   
+
+   <form action="" onsubmit="check(event)">
+    <h1 style="color:#EF3564 ;"> TAB<span style=color:#8DC73F;>LE</span></h1>
+    <label for="input1">ENTER A NUMBER TO PRINT A TABLE</label> <br><br>
+    <input type="number" id="input1" required min="2"> <br><br>
+
+    <button>print</button> <br> <br>
+    <input type="reset" id="button">
+    </form>
+
+    <!-- <div class="table"></div> -->
+    <div class="print"></div>
+      
+    <script>
+
+        function check(event){
+        let input1 = document.querySelector("#input1").value;
+
+        let table = document.createElement("div");
+        let th = document.createElement("h2");
+        th.className="head";
+        
+        th.style.color="white";
+        th.style.fontStyle="italic";
+        th.style.textDecoration="underline";
+        table.appendChild(th);
+        table.className= 'table';
+        table.style.backgroundColor="#EF3564";
+        table.style.color="white";
+        table.style.border="thin solid #EF3564";
+        table.style.width= "100px";
+        table.style.margin= "10px auto";
+        table.style.padding= "10px";
+        table.style.borderRadius="10px";
+
+        let print = document.querySelector(".print");
+
+        print.appendChild(table);
+
+        event.preventDefault();
+         
+        for(i=0 ; i <11 ; i ++){
+            document.querySelector(".head").innerHTML= "Table of " + input1;
+        }
+       
+
+        for(i = 0 ; i < 11 ; i++){
+          let table =  document.querySelector(".table");
+         table.innerHTML+=`${input1} x ${i} = ${input1 * i} <br>`; 
+        }
+
+    }
+
+    </script>
+    
+
+   </form>
+</body>
+</html>
